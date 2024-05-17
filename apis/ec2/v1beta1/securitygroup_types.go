@@ -248,6 +248,12 @@ type SecurityGroupObservation struct {
 
 	// SecurityGroupID is the ID of the SecurityGroup.
 	SecurityGroupID string `json:"securityGroupID"`
+
+	// SecurityGroupRuleIDs are the IDs of the ingress SecurityGroupRules.
+	IngressSecurityGroupRuleIDs []string `json:"ingressSecurityGroupRuleIDs"`
+
+	// SecurityGroupRuleIDs are the IDs of the egress SecurityGroupRules.
+	EgressSecurityGroupRuleIDs []string `json:"egressSecurityGroupRuleIDs"`
 }
 
 // A SecurityGroupStatus represents the observed state of a SecurityGroup.

@@ -965,6 +965,16 @@ spec:
                 description: SecurityGroupObservation keeps the state for the external
                   resource
                 properties:
+                  egressSecurityGroupRuleIDs:
+                    description: SecurityGroupRuleIDs are the IDs of the egress SecurityGroupRules.
+                    items:
+                      type: string
+                    type: array
+                  ingressSecurityGroupRuleIDs:
+                    description: SecurityGroupRuleIDs are the IDs of the ingress SecurityGroupRules.
+                    items:
+                      type: string
+                    type: array
                   ownerId:
                     description: The AWS account ID of the owner of the security group.
                     type: string
@@ -972,6 +982,8 @@ spec:
                     description: SecurityGroupID is the ID of the SecurityGroup.
                     type: string
                 required:
+                - egressSecurityGroupRuleIDs
+                - ingressSecurityGroupRuleIDs
                 - ownerId
                 - securityGroupID
                 type: object
