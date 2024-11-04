@@ -68,6 +68,10 @@ func SetupService(mgr ctrl.Manager, o controller.Options) error {
 }
 
 func isUpToDate(context context.Context, service *svcapitypes.Service, output *svcsdk.DescribeServicesOutput) (bool, string, error) {
+	if len(output.Services) != 1 {
+		return false, "", nil
+	}
+
 	t := service.Spec.ForProvider.DeepCopy()
 	c := GenerateServiceCustom(output).Spec.ForProvider.DeepCopy()
 
